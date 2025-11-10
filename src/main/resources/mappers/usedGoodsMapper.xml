@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bounce.springexample.database.repasitory.UsedGoodsRepository">
+
+    <select id="selectUsedGoodsList"
+    resultType="com.bounce.springexample.database.domain.UsedGoods">
+            SELECT * FROM `used_goods`
+    </select>
+
+</mapper>
+
+
+
+
