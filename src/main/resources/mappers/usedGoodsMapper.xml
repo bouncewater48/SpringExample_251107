@@ -6,7 +6,17 @@
 
     <select id="selectUsedGoodsList"
     resultType="com.bounce.springexample.database.domain.UsedGoods">
-            SELECT * FROM `used_goods`
+            SELECT
+                `id`
+                , `seller_id`
+                , `title`
+                , `price`
+                , `description`
+                , `image`
+                , `createrd_at`
+                , `updated_at`
+            FROM
+                `used_goods`
     </select>
 
 </mapper>
