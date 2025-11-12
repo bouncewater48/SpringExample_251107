@@ -7,6 +7,7 @@ public class Review {
     private int id;
     private int storeId;
     private String menu;
+    private String userName;
     private double point;
     private String review;
     private LocalDateTime createdAt;
@@ -34,6 +35,14 @@ public class Review {
 
     public void setMenu(String menu) {
         this.menu = menu;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public double getPoint() {
