@@ -35,17 +35,17 @@ public class ReviewController {
     @RequestMapping("/write")
     public String writeReview() {
         // 4, 치즈피자, 강승훈, 4.5, 치즈피자 존맛!
-        int count = reviewService.createReview(4,"치즈피자","강승훈", 4.5, "치즈피자 존맛!");
+//        int count = reviewService.createReview(4,"치즈피자","강승훈", 4.5, "치즈피자 존맛!");
 
         // 2, 뿌링클, 강승훈, 4.0, 역시 뿌링클은 진리!!
-//        Review review = new Review();
-//        review.setStoreId(2);
-//        review.setMenu("뿌링클");
-//        review.setUserName("강승훈");
-//        review.setPoint(4.0);
-//        review.setReview("역시 뿌링클은 진리!!");
+        Review review = new Review();
+        review.setStoreId(2);
+        review.setMenu("뿌링클");
+        review.setUserName("강승훈");
+        review.setPoint(4.0);
+        review.setReview("역시 뿌링클은 진리!!");
 
-//        int count = reviewService.createReviewByObject(review);
+        int count = reviewService.createReviewByObject(review);
 
         return "실행 결과 : " + count;
 
