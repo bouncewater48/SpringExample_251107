@@ -39,4 +39,26 @@
         )
     </insert>
 
+    <insert id="insertUserByObject"
+            parameterType="com.bounce.springexample.mvc.domain.User"
+    useGeneratedKeys="true" keyProperty="id">
+
+        INSERT INTO
+                `new_user`
+            (
+              `name`
+            , `yyyymmdd`
+            , `email`
+            , `introduce`
+            )
+        VALUE
+            (
+            #{name}
+            , #{yyyymmdd}
+            , #{email}
+            , #{introduce}
+            )
+
+    </insert>
+
 </mapper>
