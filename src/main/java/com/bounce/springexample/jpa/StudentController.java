@@ -1,6 +1,7 @@
 package com.bounce.springexample.jpa;
 
 import com.bounce.springexample.jpa.domain.Student;
+import com.bounce.springexample.jpa.repository.StudentRepository;
 import com.bounce.springexample.jpa.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @RequestMapping("/jpa/student")
 @Controller
@@ -16,6 +19,12 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    // !!!! 경고 !!!!!!!
+    // 절대 Controller 에서 Repository 객체를 활용하지 않는다!!!
+    // 다만, 코드 작성 편의를 위해서 임시로 활용
+    @Autowired
+    private StudentRepository studentRepository;
 
     @ResponseBody
     @GetMapping("/lombok")
@@ -72,6 +81,28 @@ public class StudentController {
         studentService.deleteStudent(3);
 
         return "삭제 완료";
+    }
+
+    @ResponseBody
+    @GetMapping("/find")
+    public List<Student> findStudent() {
+
+        List<Student> studentList = null;
+        // 모든 행 조회
+//          studentList = studentRepository.findAll();
+//        studentList = studentRepository.findByName("조세호");
+//        studentList = studentRepository.findByOrderByIdDesc();
+
+//        studentList = studentRepository.findTop2ByNameOrderByIdDesc("강승훈");
+        List<String> nameList = new ArrayList<>();
+        nameList.add("유재석");
+        nameList.add("강승훈");
+
+//        studentList = studentRepository.findByNameIn(nameList);
+        studentList = studentRepository.selectByDreamJob("개발자");
+
+        return studentList;
+
     }
 
 }
